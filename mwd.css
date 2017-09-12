@@ -1,0 +1,49 @@
+body {background: url('img/bg.png') black repeat-x; color: white; font-family: Arial, Helvetica, sans-serif; text-align: justify;}
+#wrapper {z-index:1; width: 75%; margin: 0 auto;}
+#menu {width: 100%;}
+#transparent {border: transparent; padding: 12px; background-image: url('img/transparent.png');}
+#logo {vertical-align: bottom; text-align: right;}
+#logo img {height: auto; width: 100%; max-width: 564px;}
+#footer {text-align: center; padding: 10px; font-size: x-small; color: gray;}
+#backtotop {display: none; position: fixed; bottom: 20px; right: 30px; z-index: 99; border: none; outline: none; background-color: DimGray; color: white; cursor: pointer; padding: 10px 15px 10px 15px; border-radius: 10px; opacity: 0.9;}
+#backtotop:hover {background-color: LightSeaGreen;}
+a {color: LightSeaGreen; text-decoration: none; font-weight: bold; transition:color 0.3s ease-in; -webkit-transition:color 0.3s ease-in; -moz-transition:color 0.3s ease-in; -o-transition:color 0.3s ease-in;}
+a:hover {color: MediumTurquoise;}
+a img {border: 0;}
+h1 {font-size: 24px; margin: 0px; padding-top: 10px; color: LightSeaGreen; border-bottom: 1px solid SlateGray; margin-bottom: 10px; cursor: default;}
+li {padding-right: 16px; vertical-align: top}
+.feats ul {list-style-image: url('img/graduation-hat.png');}
+
+/* Language selector */
+.select-style {width: 100px; border-radius: 20px; overflow: hidden; background: LightGray url("img/icon-select.png") no-repeat 90% 50%;}
+.select-style select {padding: 4px 8px; width: 130%; background: transparent; border: transparent; background-image: none; -webkit-appearance: none;}
+.select-style select:focus {color: DarkCyan;}
+
+/* Audio Player */
+.audioplayer {padding:0 20px;}
+.audioplayer a, .audioplayer a:hover, .audioplayer .audioplayer a:link, a:focus, .audioplayer a:active, .audioplayer a:visited {color: MediumTurquoise; font-weight: normal;}
+.audioplayer ul {margin-left: -16px; width:100%; list-style-image: url('img/microphone.png');}
+.audioplayer p span.track-name {color: LightGreen; font-weight: bold;}
+.audioplayerhl {background: url('img/bgsw.png') repeat-x; border: 1px solid black; padding: 0px 12px 12px 12px; width: 75%; margin: 0 auto;}
+
+/* Videos */
+.videoplayer {width: 100%;}
+.videowrapper-DaT {position: relative; padding-bottom: 56.25%; /* 56.25%; */ padding-top: 31.5px; height: 0;}
+.videowrapper-DaT iframe {position: absolute; top: 0; left: 0; width: 100%; height: 100%;}
+
+/* Contact form */
+#contact input {padding: 2px; width: 400px; font-size: 1.4em; margin: 0px 0px 10px 0px; border: 2px solid #ccc;}
+#contact textarea:focus, #contact input:focus {border: 2px solid LightSeaGreen;}
+#contact button {width: 100px;}
+
+/* Pop */
+@-webkit-keyframes hvr-pop {50% {-webkit-transform: scale(1.2); transform: scale(1.2);}}
+@keyframes hvr-pop {50% {-webkit-transform: scale(1.2); transform: scale(1.2);}}
+.hvr-pop {display: inline-block; vertical-align: middle; -webkit-transform: perspective(1px) translateZ(0); transform: perspective(1px) translateZ(0); box-shadow: 0 0 1px transparent;}
+.hvr-pop:hover, .hvr-pop:focus, .hvr-pop:active {-webkit-animation-name: hvr-pop; animation-name: hvr-pop; -webkit-animation-duration: 0.3s; animation-duration: 0.3s; -webkit-animation-timing-function: linear; animation-timing-function: linear; -webkit-animation-iteration-count: 1; animation-iteration-count: 1;}
+
+/* Sweep To Right */
+.content li {list-style-type: lower-greek; -webkit-transform: perspective(1px) translateZ(0); transform: perspective(1px) translateZ(0); box-shadow: 0 0 1px transparent; position: relative;   -webkit-transition-property: color; transition-property: color; -webkit-transition-duration: 0.3s; transition-duration: 0.3s;}
+.content li:before {content: ""; position: absolute; z-index: -1; top: 0; left: 0; right: 0; bottom: 0; background: black; -webkit-transform: scaleX(0); transform: scaleX(0); -webkit-transform-origin: 0 50%; transform-origin: 0 50%; -webkit-transition-property: transform; transition-property: transform; -webkit-transition-duration: 0.3s; transition-duration: 0.3s; -webkit-transition-timing-function: ease-out; transition-timing-function: ease-out;}
+.content li:hover, .content li:focus, .content li:active {color: white;}
+.content li:hover:before, .content li:focus:before, .content li:active:before {-webkit-transform: scaleX(1); transform: scaleX(1);}
