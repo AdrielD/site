@@ -12,45 +12,17 @@
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/i18next-1.6.3.min.js"></script>
 <script src="js/jquery.jplayer.min.js"></script>
-<script><!-- From https://jsfiddle.net/WSaMM/ -->
-$(document).ready(function() {
-    $('select.language-select').on('change', function(evt) {
-        var selectedLanguage = $(this).find('option:selected').val(),
-            contentHtml = $('script[type="text/html-template"][lang=' + selectedLanguage + ']').html(),
-            content = $('div.content');
-        content.html(contentHtml);
-    });
-});
-</script>
-<script><!-- From W3C -->
-window.onscroll = function() {scrollFunction()}; function scrollFunction() {if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {document.getElementById("backtotop").style.display = "block";} else {document.getElementById("backtotop").style.display = "none";}} function topFunction() {document.body.scrollTop = 0;     document.documentElement.scrollTop = 0;} 
-</script>
-<script><!-- From http://www.jplayer.org/latest/demo-04/ -->
-$(document).ready(function(){
-	var	my_jPlayer = $("#jquery_jplayer"),
-		my_trackName = $("#jp_container .track-name"),
-		my_playState = $("#jp_container .play-state"),
-		my_extraPlayInfo = $("#jp_container .extra-play-info");
-	var	opt_play_first = false, // If true, will attempt to auto-play the default track on page loads. No effect on mobile devices, like iOS
-		opt_auto_play = true, // If true, when a track is selected, it will auto-play
-		opt_text_playing = "Current clip", // Text when playing
-		opt_text_selected = "Current clip"; // Text when not playing
-	var first_track = true;
-	$.jPlayer.timeFormat.padMin = true;
-	$.jPlayer.timeFormat.padSec = true;
-	$.jPlayer.timeFormat.sepMin = " min ";
-	$.jPlayer.timeFormat.sepSec = " sec";
-	my_playState.text(opt_text_selected);
-	my_jPlayer.jPlayer({ 		ready: function () { 			$("#jp_container .track-default").click(); 		}, 		timeupdate: function(event) { 			my_extraPlayInfo.text(parseInt(event.jPlayer.status.currentPercentAbsolute, 10) + "%"); 		}, 		play: function(event) { 			my_playState.text(opt_text_playing); 		}, 		pause: function(event) { 			my_playState.text(opt_text_selected); 		}, 		ended: function(event) { 			my_playState.text(opt_text_selected); 		}, 		swfPath: "../dist/jplayer", 		cssSelectorAncestor: "#jp_container", 		supplied: "mp3", 		wmode: "window" 	}); 	$("#jp_container .track").click(function(e) { 		my_trackName.text($(this).text()); 		my_jPlayer.jPlayer("setMedia", { 			mp3: $(this).attr("href") 		}); 		if((opt_play_first && first_track) || (opt_auto_play && !first_track)) { 			my_jPlayer.jPlayer("play"); 		} 		first_track = false; 		$(this).blur(); 		return false; 	}); 	$("#jplayer_inspector").jPlayerInspector({jPlayer:$("#jquery_jplayer")}); });
-</script>
+<script src="js/mwd.js"></script>
 </head>
 
 <body>
-<button onclick="topFunction()" id="backtotop" title="Go to top">UP</button> 
+<button id="backtotop" onclick="topFunction()" title="Go to top" style="display: block;">
+  <img alt="Back to top" src="img/arrow-090.png">
+</button>
 
 <div id="wrapper"><div><a name="top"></a></div>
 
-<table id="menu">
+<table id="upper">
 <tr><th><div class="select-style"><select name='lang' class='language-select'><option value='en'>English</option><option value='pt'>Português</option></select></div></th>
 <th rowspan="2" id="logo"><img alt="Mark Datysgeld" src="img/logo-mark.png"></th></tr>
 <tr><td>Social: <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/markwd/"><img alt="LinkedIn" src="img/icon-li-small.png"></a> <a rel="noopener noreferrer" target="_blank" href="http://buscatextual.cnpq.br/buscatextual/visualizacv.do?id=K4344979U2"><img alt="Lattes" src="img/icon-lattes-small.png"></a> <a rel="noopener noreferrer" target="_blank" href="https://www.quora.com/profile/Mark-Datysgeld"><img alt="Quora" src="img/icon-quora-small.png"></a></td></tr>
@@ -58,119 +30,164 @@ $(document).ready(function(){
 
 <div id='transparent'>
 
-<script type='text/html-template' lang='en'>
-TEST
-</script>
+<!-- Content starts -->
+<div id='content' class='content'>
+  <div id="menu">
+    <a href="#short" class="hvr-pop" data-i18n="nav.short_articles"></a> – 
+    <a href="#long" class="hvr-pop" data-i18n="nav.long_articles"></a> – 
+    <a href="#audio" class="hvr-pop" data-i18n="nav.audio_publications"></a> – 
+    <a href="#video" class="hvr-pop" data-i18n="nav.video_publications"></a> – 
+    <a href="#feats" class="hvr-pop" data-i18n="nav.accomplishments"></a> – 
+    <a href="#contact" class="hvr-pop" data-i18n="nav.contact"></a></div>
+  <br>
+  <div data-i18n="presentation"></div>
 
-<!-- Content starts --><div class='content' data-current-language='en'>
-<div class="menu"><a href="#short" class="hvr-pop">Short articles</a> – <a href="#long" class="hvr-pop">Long articles</a> – <a href="#audio" class="hvr-pop">Audio publications</a> – <a href="#video" class="hvr-pop">Video publications</a> – <a href="#feats" class="hvr-pop">Accomplishments</a> – <a href="#contact" class="hvr-pop">Contact</a></div>
-<br>
-<div>Welcome, this is the website of Mark W. Datysgeld, a master in International Relations from Brazil focused on the thematics of <b>Internet Governance</b> and the impacts of technology on <b>public policy</b>. Here I have collected all of my key publications in a single, open archive, in the hopes that it can be used by other researchers from around the world.</div>
-
-<a href name="short" onclick="return false;"><h1>Short articles</h1></a>
-<div class="content">
-<ul>
-<li>2017: What makes the virtual attack WannaCry so relevant? – [English] <a href="http://www.diarioinduscom.com/por-que-se-fala-tanto-do-ataque-virtual-wannacry/">[Português]</a></li>
-<li>2017: Google will enter Cuba, but Internet connectivity will not be enhanced – [English] <a href="https://issuu.com/diariodesorocabaonline/docs/161217">[Português]</a></li>
-<li>2016: Brazil's participation within ICANN's environment – [English] <a href="http://comunicacaoepolitica.com.br/blog/2016/05/a-participacao-do-brasil-no-ambito-da-icann/">[Português]</a></li>
-<li>US election proves the growing political importance of WikiLeaks – <a href="http://mrnews.com.br/2016/11/01/eleicao-nos-eua-comprova-a-crescente-importancia-politica-do-wikileaks/">[Português]</a></li>
-<li>2016: How to protect States from espionage: the Brazilian response – [English] <a href="http://neai-unesp.org/como-proteger-os-estados-da-espionagem-por-mark-datysgeld/">[Português]</a></li>
-<li>Internal vs. External: How China created it's own definition of Internet – [English] <a href="http://neai-unesp.org/como-a-china-criou-sua-propria-definicao-de-internet/">[Português]</a></li>
-<li>Issues and disputes relevant to the new gTLD .music – <a href="http://dominioslatinoamerica.co/en/cuestiones-y-controversias-respecto-al-nuevo-gtld-music/">[English]</a> <a href="http://dominioslatinoamerica.co/cuestiones-y-controversias-respecto-al-nuevo-gtld-music/">[Español]</a> <a href="http://dominioslatinoamerica.co/pb/cuestiones-y-controversias-respecto-al-nuevo-gtld-music/?lipi">[Português]</a></li>
-<li>3D printed weapons may affect security systems – <a href="http://neai-unesp.org/armas-impressas-em-3d-poderao-afetar-sistemas-de-seguranca/">[Português]</a></li>
-<li>Drones, between progress and uncertainty – <a href="http://neai-unesp.org/os-drones-entre-o-progresso-e-a-incerteza/">[Português]</a></li>
-</ul>
-</div>
-
-<a href name="long" onclick="return false;"><h1>Long articles</h1></a>
-<div class="content">
-<ul>
-<li>The diplomatic and economic clients of US digital espionage: an analysis of actions against the UN Security Council and Petrobras – [English] <a href="http://periodicos.pucminas.br/index.php/estudosinternacionais/article/download/10730/11021">[Português]</a></li>
-</ul>
-</div>
-
-<a href name="audio" onclick="return false;"><h1>Audio publications</h1></a>
-<div class="audio">
-<div>Below you can find all of the audio contributions I have made, organized in a playlist style.</div><br>
-
-<div id="jquery_jplayer"></div>
-		<div id="jp_container" class="audioplayer">
-			<div class="audioplayerhl">
-			<!-- Status -->
-			<p><span class="play-state"></span>: <span class="track-name">No track selected</span><br><span class="extra-play-info"></span> of <span class="jp-duration"></span></p>
-			<!-- Controls -->
-			<div><a class="jp-play" href="#">Play</a><a class="jp-pause" href="#">Pause</a></div>
-			</div>
-			<ul>
-				<li><a href="media/podcast_MarcelaTemer.mp3" class="track track-default">Unesp researcher comments on the hacker attack made against Marcela Temer (Português)</a></li>
-				<li><a href="media/podcast_TrumpEspionagem.mp3" class="track">Trump will intensify espionage policies regarding data on the Internet (Português)</a></li>
-				<li><a href="media/podcast_TrumpRedesSociais.mp3" class="track">Unesp researcher analyses Trump's proposal to demand social network passwords as a condition to conceed US visas (Português)</a></li>
-				<li><a href="media/podcast_RussiaEleicoesEUA.mp3" class="track">Russia causes virtual interference in several democratic processes, but may not be culpable for the US incident (Português)</a></li>
-				<li><a href="media/podcast_WikiLeaksLegalidade.mp3" class="track">Specialist in Internet Governance norms talks about the legality of the material released by WikiLeaks (Português)</a></li>
-				<li><a href="media/podcast_WikiLeaksImpacto.mp3" class="track">Unesp researcher comments features and impacts of WikiLeaks in contemporary society (Português)</a></li>
-			</ul>
-		</div>
-</div>
-
-<a href name="video" onclick="return false;"><h1>Video publications</h1></a>
-<div class="videoplayer">
-<div class="videowrapper-DaT">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/zrUxewovktA" frameborder="0" allowfullscreen></iframe>
-</div>
-<br>Documentary in Portuguese with English subtitles available.
-</div>
-
-IGF WS
-
-<a href name="feats" onclick="return false;"><h1>Accomplishments</h1></a>
-<div class="feats">
-<ul>
-<li>Master in International Relations</li>
-<li>South School of Internet Governance 2017</li>
-<li>Brazil School of Internet Governance 2017</li>
-<li>ICANN Next Generation 2015</li>
-<li>ICANN Next Generation Ambassador 2016</li>
-<li>ICANN Fellow</li>
-</ul>
-</div>
-
-<a href name="contact" onclick="return false;"><h1>Contact</h1></a>
-<div>This is a contact form that actually works and that is linked to an e-mail account I consistently check, so be at ease about using it. It is a pleasure to be in contact with anybody who finds my work relevant, be it enthusiasts, fellow researchers or potential contractors. Feel free to send me comments, questions or enquiries.</div>
-<br>
-<div id="contact">
-<form class="forming" action="//www.enformed.io/olqy87nf" method="post">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-input" name="name" />
+  <a href name="short" onclick="return false;"><h1 data-i18n="nav.short_articles"></h1></a>
+  <div class="content">
+  <ul>
+    <li>
+      <span data-i18n="short_articles.a"></span> – 
+      [English] <!-- future english link here! -->
+      <a href="http://www.diarioinduscom.com/por-que-se-fala-tanto-do-ataque-virtual-wannacry/">[Português]</a>
+    </li>
+    <li>
+      <span data-i18n="short_articles.b"></span> – 
+      [English] <!-- future english link here! -->
+      <a href="https://issuu.com/diariodesorocabaonline/docs/161217">[Português]</a></li>
+    <li>
+      <span data-i18n="short_articles.c"></span> – 
+      [English] <!-- future english link here! -->
+      <a href="http://comunicacaoepolitica.com.br/blog/2016/05/a-participacao-do-brasil-no-ambito-da-icann/">[Português]</a>
+    </li>
+    <li>
+      <span data-i18n="short_articles.d"></span> – 
+      [English] <!-- future english link here! -->
+      <a href="http://mrnews.com.br/2016/11/01/eleicao-nos-eua-comprova-a-crescente-importancia-politica-do-wikileaks/">[Português]</a>
+    </li>
+    <li>
+      <span data-i18n="short_articles.e"></span> – 
+      [English] <!-- future english link here! -->
+      <a href="http://neai-unesp.org/como-proteger-os-estados-da-espionagem-por-mark-datysgeld/">[Português]</a>
+    </li>
+    <li>
+      <span data-i18n="short_articles.f"></span> – 
+      [English] <!-- future english link here! -->
+      <a href="http://neai-unesp.org/como-a-china-criou-sua-propria-definicao-de-internet/">[Português]</a>
+    </li>
+    <li>
+      <span data-i18n="short_articles.g"></span> – 
+      <a href="http://dominioslatinoamerica.co/en/cuestiones-y-controversias-respecto-al-nuevo-gtld-music/">[English]</a> 
+      <a href="http://dominioslatinoamerica.co/cuestiones-y-controversias-respecto-al-nuevo-gtld-music/">[Español]</a> 
+      <a href="http://dominioslatinoamerica.co/pb/cuestiones-y-controversias-respecto-al-nuevo-gtld-music/?lipi">[Português]</a>
+    </li>
+    <li>
+      <span data-i18n="short_articles.h"></span> - 
+      [English] <!-- future english link here! -->
+      <a href="http://neai-unesp.org/armas-impressas-em-3d-poderao-afetar-sistemas-de-seguranca/">[Português]</a>
+    </li>
+    <li>
+      <span data-i18n="short_articles.i"></span> - 
+      [English] <!-- future english link here! -->
+      <a href="http://neai-unesp.org/os-drones-entre-o-progresso-e-a-incerteza/">[Português]</a>
+    </li>
+  </ul>
   </div>
-  <div class="form-group">
-    <label for="email">E-mail</label>
-    <input type="email" class="form-input" name="email" />
+
+  <a href name="long" onclick="return false;"><h1 data-i18n="nav.long_articles"></h1></a>
+  <div class="content">
+  <ul>
+  <li>
+    <span data-i18n="long_articles.a"></span> – 
+    [English] <!-- future english link here! -->
+     <a href="http://periodicos.pucminas.br/index.php/estudosinternacionais/article/download/10730/11021">[Português]</a></li>
+  </ul>
   </div>
+
+  <a href name="audio" onclick="return false;"><h1 data-i18n="nav.audio_publications"></h1></a>
+  <div class="audio">
+  <div data-i18n="audio_publications.intro"></div><br>
+
+  <div id="jquery_jplayer"></div>
+  		<div id="jp_container" class="audioplayer">
+  			<div class="audioplayerhl">
+  			<!-- Status -->
+  			<p><span class="play-state"></span>: <span class="track-name">No track selected</span><br><span class="extra-play-info"></span> of <span class="jp-duration"></span></p>
+  			<!-- Controls -->
+  			<div><a class="jp-play" href="#">Play</a><a class="jp-pause" href="#">Pause</a></div>
+  			</div>
+  			<ul>
+  				<li><a href="media/podcast_MarcelaTemer.mp3" class="track track-default" data-i18n="video_publications.a"></a></li>
+  				<li><a href="media/podcast_TrumpEspionagem.mp3" class="track" data-i18n="video_publications.b"></a></li>
+  				<li><a href="media/podcast_TrumpRedesSociais.mp3" class="track" data-i18n="video_publications.c"></a></li>
+  				<li><a href="media/podcast_RussiaEleicoesEUA.mp3" class="track" data-i18n="video_publications.d"></a></li>
+  				<li><a href="media/podcast_WikiLeaksLegalidade.mp3" class="track" data-i18n="video_publications.e"></a></li>
+  				<li><a href="media/podcast_WikiLeaksImpacto.mp3" class="track" data-i18n="video_publications.f"></a></li>
+  			</ul>
+  		</div>
+  </div>
+
+  <a href name="video" onclick="return false;"><h1 data-i18n="nav.video_publications"></h1></a>
+  <div id="vwrapper">
+    <div class="vframe">
+      <div class="videoplayer">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/zrUxewovktA" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+      <details>
+      <summary>[Audio: PT-BR, Subtitles: EN] Dispelling the Darkness: The Reflexes of Indian Culture in Brazil</summary>
+      <p>Numbers numbers numbers</p></details>
+    </div>
+    <br>
+    <div class="vframe">
+      <div class="videoplayer">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/cdMyAkKDCHI" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+      <details>
+      <summary>[Audio: EN] WS225: Hands-on youth-driven Internet initiatives</summary>
+      <p>Business business business</p></details>
+    </div>
+  </div>
+
+  <a href name="feats" onclick="return false;"><h1 data-i18n="nav.accomplishments"></h1></a>
+  <div class="feats">
+  <ul>
+  <li data-i18n="accomplishments.a"></li>
+  <li data-i18n="accomplishments.b"></li>
+  <li data-i18n="accomplishments.c"></li>
+  <li data-i18n="accomplishments.d"></li>
+  <li data-i18n="accomplishments.e"></li>
+  <li data-i18n="accomplishments.f"></li>
+  <li data-i18n="accomplishments.g"></li>
+  <li data-i18n="accomplishments.h"></li>
+  <li data-i18n="accomplishments.i"></li>
+  <li data-i18n="accomplishments.j"></li>
+  <li data-i18n="accomplishments.k"></li>
+  </ul>
+  </div>
+
+  <a href name="contact" onclick="return false;"><h1 data-i18n="nav.contact"></h1></a>
+  <div><span data-i18n="contact.intro"></span></div>
+  <br>
+  <div id="contact">
+  <form class="forming" action="//www.enformed.io/olqy87nf" method="post">
     <div class="form-group">
-    <label for="message">Message</label>
-    <input type="text" class="form-input" name="message" />
+      <label for="name" data-i18n="contact.form.name"></label>
+      <input type="text" class="form-input" name="name" />
+    </div>
+    <div class="form-group">
+      <label for="email" data-i18n="contact.form.email"></label>
+      <input type="email" class="form-input" name="email" />
+    </div>
+      <div class="form-group">
+      <label for="message" data-i18n="contact.form.message"></label>
+      <textarea class="form-input" name="message" rows="10" cols="100"></textarea>
+    </div>
+    <center>
+      <button type="submit" class="form-group" data-i18n="contact.form.submit"></button>
+    </center>
+  </form>
   </div>
-<button type="submit" class="form-group">Submit!</button>
-</form>
-</div>
 
 </div><!-- Content ends -->
-
-<script type='text/html-template' lang='pt'>
-<div>Publicações curtas – Publicações longas – Contato</div>
-<br>
-Bem-vindo, eu sou Mark W. Datysgeld, um pesquisador do Brasil focado nas temáticas de Governança da Internet e os impactos da tecnologia na formação de policies. Este website serve o objetivo de coletar minhas publicações em um único arquivo aberto.
-
-<h1>Publicações curtas</h1>
-Article 1 – [English] [Português]<br>
-Article 2 – [English] [Português]<br>
-Article 3 – [English] [Português]<br>
-Article 4 – [English] [Português]<br>
-Article 5 – [English] [Português]<br>
-Article 6 – [English] [Português]<br>
-
-</script>
 
 </div>
 

@@ -1,0 +1,58 @@
+{
+	"nav": {
+		"short_articles": "Artigos curtos",
+		"long_articles": "Artigos longos",
+		"audio_publications": "Publicações em áudio",
+		"video_publications": "Publicações em vídeo",
+		"accomplishments": "Realizações",
+		"contact": "Contato"
+	},
+	"presentation": "Bem-vindo, eu sou Mark W. Datysgeld, um pesquisador do Brasil focado nas temáticas de Governança da Internet e os impactos da tecnologia na formação de policies. Este website serve o objetivo de coletar minhas publicações em um único arquivo aberto.",
+	"short_articles" : {
+		"a": "2017: Por que se fala tanto do ataque virtual WannaCry?",
+		"b": "2017: Google entrará em Cuba, mas conexão à Internet não será melhorada",
+		"c": "2016: A participação do Brasil no âmbito da ICANN",
+		"d": "Eleição nos EUA comprova a crescente importância política do Wikileaks",
+		"e": "2016: Como proteger Estados da espionagem: a resposta brasileira",
+		"f": "Interno vs. Externo: Como a China criou sua própria definição de Internet",
+		"g": "Questões e disputas pertinentes ao novo gTLD .music",
+		"h": "Armas impressas em 3D poderão afetar sistemas de segurança",
+		"i": "Os drones, entre progresso e incerteza"
+	},
+	"long_articles": {
+		"a": "Os clientes diplomáticos e econômicos da espionagem digital estadunidense: análise das ações contra o Conselho de Segurança da ONU e a Petrobras"
+	},
+	"audio_publications": {
+		"intro": "Abaixo, você encontrará todas as minhas contribuições feitas em áudio, organizadas em estilo playlist."
+	},
+	"video_publications": {
+		"a": "Pesquisador da Unesp comenta sobre o ataque hacker feito à Marcela Temer (Português)",
+		"b": "Trump intensificará políticas de espionagem em informações na Internet (Português)",
+		"c": "Pesquisador da Unesp analisa proposta de Trump de demandar senhas de redes sociais como condição para conceder vistos americanos (Português)",
+		"d": "Rússia causa interferência virtual em diversos processos democráticos, mas pode não ser culpado pelo ocorrido nos EUA (Português)",
+		"e": "Especialista em normas de Governança da Internet fala sobre legalidade de material vazado pela WikiLeaks (Português)",
+		"f": "Pesquisador da Unesp comenta sobre características e impactos do WikiLeaks na sociedade contemporânea (Português)"
+	},
+	"accomplishments": {
+		"a": "2017: Master's degree in International Relations",
+		"b": "2017: Brazil School of Internet Governance",
+		"c": "2017: South School of Internet Governance",
+		"d": "2016: Organizer at the United Nation's IGF of WS225: Hands-on youth-driven Internet initiatives",
+		"e": "2016: Inaugural Governance Primer courses organized and carried out",
+		"f": "2016: ICANN Fellow (55th, 58th, 60th meetings)",
+		"g": "2016: ICANN Next Generation Ambassador (56th meeting)",
+		"h": "2015: Local staff at the 10th United Nation's IGF",
+		"i": "2015: ICANN Next Generation (53rd meeting)",
+		"j": "2014: BA in International Relations",
+		"k": "2013: Scientific Initiation in International Relations"
+	},
+	"contact": {
+		"intro": "Este é um formulário de contato ativo, associado a uma conta de e-mail que verifico frequentemente, sinta-se a vontade para utilizar. É um prazer estar em contato com qualquer pessoa que ache meu trabalho relevante, sejam intusiastas, colegas pesquisadores ou contratantes em potencial. Esteja a vontade para me enviar comentários, perguntas ou requisições. Responderei submissões em Inglês, Português e Espanhol.",
+		"form": {
+			"name": "Nome",
+			"email": "E-mail",
+			"message": "Menssagem",
+			"submit": "Enviar!"
+		}
+	}
+}
